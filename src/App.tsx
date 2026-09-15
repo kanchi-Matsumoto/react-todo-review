@@ -52,21 +52,20 @@ function App() {
       done: false,
     };
 
-    setTodos((currentTodos) => [...currentTodos, newTodo]);
+    todos.push(newTodo);
+    setTodos(todos);
   };
 
   const handleToggle = (id: number) => {
-    setTodos((currentTodos) =>
-      currentTodos.map((todo) =>
+    setTodos(
+      todos.map((todo) =>
         todo.id === id ? { ...todo, done: !todo.done } : todo,
       ),
     );
   };
 
   const handleSortByText = () => {
-    setTodos((currentTodos) =>
-      [...currentTodos].sort((a, b) => a.text.localeCompare(b.text)),
-    );
+    setTodos(todos.sort((a, b) => a.text.localeCompare(b.text)));
   };
 
   return (

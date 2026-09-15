@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 type TodoItemProps = {
   id: number;
@@ -8,8 +8,13 @@ type TodoItemProps = {
 };
 
 function TodoItem({ id, text, done, onToggle }: TodoItemProps) {
+  const navigate = useNavigate();
+
   return (
-    <article className={done ? "todo-card todo-card--done" : "todo-card"}>
+    <article
+      className={done ? "todo-card todo-card--done" : "todo-card"}
+      onClick={() => navigate(`/todos/${id}`)}
+    >
       <label className="todo-item-label">
         <input
           className="todo-checkbox"

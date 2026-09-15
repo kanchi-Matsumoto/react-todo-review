@@ -69,7 +69,8 @@ function TodoListPage({
       </div>
 
       <p className="todo-summary">
-        未完了：{remainingCount}件 / 完了済み：{completedCount}件
+        未完了：{remainingCount}件
+        {completedCount && ` / 完了済み：${completedCount}件`}
       </p>
 
       {isLoading && (
