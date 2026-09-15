@@ -11,6 +11,7 @@ type TodoListPageProps = {
   loadError: string;
   onAdd: (text: string) => void;
   onToggle: (id: number) => void;
+  onSortByText: () => void;
 };
 
 function TodoListPage({
@@ -19,6 +20,7 @@ function TodoListPage({
   loadError,
   onAdd,
   onToggle,
+  onSortByText,
 }: TodoListPageProps) {
   const [filter, setFilter] = useState<Filter>("all");
 
@@ -85,6 +87,27 @@ function TodoListPage({
       {!isLoading && loadError === "" && (
         <TodoList todos={filteredTodos} onToggle={onToggle} />
       )}
+
+      <div className="todo-bulk-actions">
+        <button
+          className="todo-bulk-button"
+          type="button"
+          onClick={() => {
+            todos.forEach((todo) => {
+              if (!todo.done) onToggle(todo.id);
+            });
+          }}
+        >
+          未完了をすべて完了にする
+        </button>
+        <button
+          className="todo-bulk-button"
+          type="button"
+          onClick={onSortByText}
+        >
+          名前順に並べ替える
+        </button>
+      </div>
     </main>
   );
 }

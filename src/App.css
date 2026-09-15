@@ -156,6 +156,29 @@ body {
   gap: 12px;
 }
 
+.todo-bulk-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.todo-bulk-button {
+  padding: 8px 14px;
+  border: 1px solid #d7d2c8;
+  border-radius: 7px;
+  background-color: #ffffff;
+  color: #475569;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.todo-bulk-button:hover {
+  border-color: #0f766e;
+  color: #0f766e;
+}
+
 .todo-card {
   padding: 16px;
   border: 1px solid #d7d2c8;

@@ -63,6 +63,12 @@ function App() {
     );
   };
 
+  const handleSortByText = () => {
+    setTodos((currentTodos) =>
+      [...currentTodos].sort((a, b) => a.text.localeCompare(b.text)),
+    );
+  };
+
   return (
     <div className="app-shell">
       <header className="app-header">
@@ -87,6 +93,7 @@ function App() {
               loadError={loadError}
               onAdd={handleAdd}
               onToggle={handleToggle}
+              onSortByText={handleSortByText}
             />
           }
         />
